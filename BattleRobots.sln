@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleRobots", "BattleRobots\BattleRobots.csproj", "{5BF17556-74B4-4DD4-A1AF-7D8180327FEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BF17556-74B4-4DD4-A1AF-7D8180327FEF}.Debug|x86.ActiveCfg = Debug|x86
+		{5BF17556-74B4-4DD4-A1AF-7D8180327FEF}.Debug|x86.Build.0 = Debug|x86
+		{5BF17556-74B4-4DD4-A1AF-7D8180327FEF}.Release|x86.ActiveCfg = Release|x86
+		{5BF17556-74B4-4DD4-A1AF-7D8180327FEF}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
