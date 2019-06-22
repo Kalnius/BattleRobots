@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 
 namespace BattleRobots
 {
@@ -6,10 +7,10 @@ namespace BattleRobots
     {
         public static void Main(string[] args)
         {
-            var battlePlansDir = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())) + "/BattlePlans";
-            var selectedBattlePlan = BattleChooser.SelectBattlePlan(battlePlansDir);
+            var battlePlanFile = File.ReadLines(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())) + "/BattlePlan.txt").ToArray();
+            var battlePlan = new BattlePlan(battlePlanFile);
 
-            BattleController.StartBattle(selectedBattlePlan);
+            battlePlan.Execute();
         }
     }
 }
