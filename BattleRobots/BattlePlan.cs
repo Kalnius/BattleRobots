@@ -15,7 +15,7 @@ namespace BattleRobots
             AddRobots(battlePlan);
         }
 
-        internal void Execute()
+        public void Execute()
         {
             foreach (var robot in Robots)
             {
@@ -40,38 +40,13 @@ namespace BattleRobots
             {
                 //parse data (assuming file contains CORRECT data format)
                 var position = nextRobot[0].Split(' ');
-                var direction = (Direction)Enum.Parse(typeof(Direction), position[2]);
                 var positionPoint = new Point(int.Parse(position[0]), int.Parse(position[1]));
+                var direction = (Direction)Enum.Parse(typeof(Direction), position[2]);
                 var instructions = nextRobot[1].ToArray().Select(c => (Command)Enum.Parse(typeof(Command), c.ToString())).ToArray();
 
                 Robots.Add(new Robot(direction, positionPoint, instructions, Arena));
                 skip += 2;
             }
-        }
-    }
-
-    public class Arena
-    {
-        public Point Start { get; set; }
-        public Point End { get; set; }
-
-        public bool PointIsInArena(Point point)
-        {
-            return point.X > Start.X &&
-                   point.X < End.X &&
-                   point.Y > Start.Y &&
-                   point.Y < End.Y;
-        }
-    }
-
-    public class Point
-    {
-        public int X, Y;
-
-        public Point(int x, int y)
-        {
-            X = x;
-            Y = y;
         }
     }
 }

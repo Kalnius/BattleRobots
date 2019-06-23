@@ -28,7 +28,7 @@ namespace BattleRobots
             {
                 if (instruction is Command.L || instruction is Command.R)
                     Turn(instruction);
-                else if (!WillHitWall()) 
+                else if (!WillHitWall())
                     Move();
             }
         }
@@ -38,11 +38,11 @@ namespace BattleRobots
             if (Direction is Direction.N)
                 Position.Y++;
             if (Direction is Direction.E)
-                Position.X--;
+                Position.X++;
             if (Direction is Direction.S)
                 Position.Y--;
             if (Direction is Direction.W)
-                Position.X++;
+                Position.X--;
         }
 
         private void Turn(Command instruction)
@@ -53,16 +53,16 @@ namespace BattleRobots
                 else Direction--;
             else if (instruction is Command.R)
                 if (Direction is Direction.W)
-                    Direction = Direction.N;
+                    Direction = Direction.N; 
                 else Direction++;
         }
 
         private bool WillHitWall()
         {
-            return Direction is Direction.N && Position.Y < Arena.End.Y ||
-                Direction is Direction.E && Position.X > Arena.Start.X ||
-                Direction is Direction.S && Position.Y > Arena.Start.Y ||
-                Direction is Direction.W && Position.X < Arena.End.X;
+            return Direction is Direction.N && Position.Y == Arena.End.Y ||
+                Direction is Direction.E && Position.X == Arena.End.X ||
+                Direction is Direction.S && Position.Y == Arena.Start.Y ||
+                Direction is Direction.W && Position.X == Arena.Start.X;
         }
     }
 
